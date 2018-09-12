@@ -73,7 +73,17 @@
 		    </div>
 		    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 		      <div class="card-body">
-		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		        <form style="margin-top:0px; display:initial; text-align:initial" action="inc/abilita.php" method="post">
+		        	<div class="form-group">
+					    <label for="exampleFormControlInput1">Stanza Partenza</label>
+					    <input style="width:20%" type="number" class="form-control" name="stanzaPartenza">
+					  </div>
+					  <div class="form-group">
+					    <label for="exampleFormControlInput1">Stanza Arrivo</label>
+					    <input style="width:20%" type="number" class="form-control" name="stanzaArrivo">
+					</div>
+					<button type="submit" class="btn btn-info" name="cambia">Cambia</button>
+		        </form>
 		      </div>
 		    </div>
 		  </div>
