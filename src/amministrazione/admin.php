@@ -46,18 +46,19 @@
 					$sql = "SELECT users_mail, users_name, users_cog, users_room FROM users WHERE abilitato=0";
 					$result = mysqli_query($conn, $sql);
 					$num=$result->num_rows;
+					if($num>0)
 					while ($row = $result->fetch_assoc()) { 
 
 						$temp = $row[users_mail];
-						echo '<div style="margin-bottom:10px"> <span style="display:inline-block">' . $row[users_name] . ' ' . $row[users_cog] . '('. $temp . ')   ' . '</span>'
+						echo '<div style="margin-bottom:20px"> <span style="display:inline-block">' . $row[users_name] . ' ' . $row[users_cog] . ' ('. $temp . ') ' . $row[users_room] . '</span>'
 						. 
 						'<form style="margin-top:0px; display:initial; text-align:initial" action="inc/abilita.php" method="post">
 						<input type="text" name="mail" id="mail" value="' . $temp . '" style="display: none;">
-						<button type="submit" class="btn btn-success" name="abilita">Abilita</button>
-						<button type="submit" class="btn btn-danger" name="cancella">Cancella</button>
+						<button type="submit" class="btn btn-success" style="position:absolute; right:7em;" name="abilita">Abilita</button>
+						<button type="submit" class="btn btn-danger" style="position:absolute; right:1em;" name="cancella">Cancella</button>
 						</form> <br> </div>';
 					}
-
+					else echo "<p>Nessun utente da validare.</p>"
 		        ?>
 		      </div>
 		    </div>
@@ -86,7 +87,22 @@
 		    </div>
 		    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 		      <div class="card-body">
-		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		        <?php 
+		        	include_once '../inc/db.inc.php';
+					$sql = "SELECT users_mail, users_name, users_cog, users_room FROM users";
+					$result = mysqli_query($conn, $sql);
+					$num=$result->num_rows;
+					while ($row = $result->fetch_assoc()) { 
+
+						$temp = $row[users_mail];
+						echo '<div style="margin-bottom:20px; margin-top:0px;"> <span style="display:inline-block">' . $row[users_name] . ' ' . $row[users_cog] . '('. $temp . ')   ' . '</span>'
+						. 
+						'<form style="margin-top:0px; display:initial; text-align:initial" action="inc/abilita.php" method="post">
+						<input type="text" name="mail" id="mail" value="' . $temp . '" style="display: none;">
+						<button type="submit" class="btn btn-danger" style="position:absolute; right:10px;" name="cancella">Cancella</button>
+						</form> <br> </div> <hr>';
+					}
+		        ?>
 		      </div>
 		    </div>
 		  </div>
