@@ -26,6 +26,8 @@ Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https:
 
 + Limitato numero prenotazioni giornaliere a 2 
 
++ Pannello di controllo amministratore per operazioni standard (cambio camera, kick utente, abilitazione nuovi utenti)
+
 ---
 
 ## Da implementare
@@ -34,7 +36,7 @@ Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https:
 
 + Controllo validità mail
 
-+ Migliorare pannello di controllo grafico admin
++ Migliorare limitazioni sul numero di prenotazioni
 
 + ...
 
