@@ -99,13 +99,13 @@
 		      <div class="card-body">
 		        <?php 
 		        	include_once '../inc/db.inc.php';
-					$sql = "SELECT users_mail, users_name, users_cog, users_room FROM users";
+					$sql = "SELECT users_mail, users_name, users_cog, users_room FROM users ORDER BY users_cog";
 					$result = mysqli_query($conn, $sql);
 					$num=$result->num_rows;
 					while ($row = $result->fetch_assoc()) { 
 
 						$temp = $row[users_mail];
-						echo '<div style="margin-bottom:20px; margin-top:0px;"> <span style="display:inline-block">' . $row[users_name] . ' ' . $row[users_cog] . '('. $temp . ')   ' . '</span>'
+						echo '<div style="margin-bottom:20px; margin-top:0px;"> <span style="display:inline-block">' . $row[users_cog] . ' ' . $row[users_name] . ' ('. $temp . ')   ' . '</span>'
 						. 
 						'<form style="margin-top:0px; display:initial; text-align:initial" action="inc/abilita.php" method="post">
 						<input type="text" name="mail" id="mail" value="' . $temp . '" style="display: none;">
