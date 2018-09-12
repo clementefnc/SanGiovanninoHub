@@ -40,25 +40,31 @@ if(isset($_POST['submit'])){
 					header("Location: ../registrazioni.php?error=mailRegistered");
 					exit();		
 
-				}else{
-					
-					$sql = "SELECT * FROM users WHERE users_room='$room'";
-					$result = mysqli_query($conn, $sql);
-					$check = mysqli_num_rows($result);
+				}
+				else{
 
-					if($check > 0){
-
-						header("Location: ../registrazioni.php?error=roomRegistered");
-						exit();
-
-					}else{
-
-						$hashed = password_hash($pwd, PASSWORD_DEFAULT);
-						$sql = "INSERT INTO users (users_name, users_cog, users_mail, users_pwd, users_room) VALUES ('$first', '$sec', '$mail', '$hashed', '$room')";
+					if(intval($room,10) <= 1 || intval($room,10) >90){
+						echo '<script type="text/javascript">alert("Camera non valida."); window.location="../registrazioni.php?error=invalidRoom"</script>';
+					}
+					else{
+						$sql = "SELECT * FROM users WHERE users_room='$room'";
 						$result = mysqli_query($conn, $sql);
-            			header("Location: ../login.php");
+						$check = mysqli_num_rows($result);
+
+						if($check > 0){
+
+							header("Location: ../registrazioni.php?error=roomRegistered");
+							exit();
+
+						}else{
+
+							$hashed = password_hash($pwd, PASSWORD_DEFAULT);
+							$sql = "INSERT INTO users (users_name, users_cog, users_mail, users_pwd, users_room) VALUES ('$first', '$sec', '$mail', '$hashed', '$room')";
+							$result = mysqli_query($conn, $sql);
+							header("Location: ../login.php");
 
 
+						}
 					}
 				
 				}
