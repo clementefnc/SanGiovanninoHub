@@ -1,6 +1,8 @@
-# SanGiovannino
+# SanGiovannino HUB
 
-Sito per la prenotazione dei turni per lavatrice ed asciugatrice del collegio San Giovannino.
+Portale riservato ai collegiali del SanGiovannino.
+
+Con il portale è possibile accedere da un unica pagina a tutte le info ed i servizi del collegio.
 
 ---
 
