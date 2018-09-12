@@ -22,6 +22,8 @@ Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https:
 
 + Accesso ristretto previa autorizzazione admin
 
++ Limitato valore camera nel range 2-90
+
 ---
 
 ## Da implementare
