@@ -10,7 +10,7 @@ Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https:
 
 ---
 
-# Release 1.0
+# Release 1.1
 
 ## Features
 
@@ -23,6 +23,8 @@ Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https:
 + Accesso ristretto previa autorizzazione admin
 
 + Limitato valore camera nel range 2-90
+
++ Limitato numero prenotazioni giornaliere a 2 
 
 ---
 
