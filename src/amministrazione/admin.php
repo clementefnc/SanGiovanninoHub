@@ -40,13 +40,13 @@ echo '
 Le seguenti mail ancora non sono state abilitate: <br>';
 
 include_once '../inc/db.inc.php';
-$sql = "SELECT users_mail FROM users WHERE abilitato=0";
+$sql = "SELECT users_mail, users_name, users_cog FROM users WHERE abilitato=0";
 $result = mysqli_query($conn, $sql);
 $num=$result->num_rows;
 while ($row = $result->fetch_assoc()) {  
 	$temp = $row[users_mail];
 	echo "Mail: " .$temp 
-		."Nome: " . $row[users_name] . " " . $row[users_cog] 
+		."<br>Nome: " . $row[users_name] . " " . $row[users_cog] 
 	. '
 	
 	<form action="inc/abilita.php" method="post">
