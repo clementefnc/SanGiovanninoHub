@@ -45,7 +45,9 @@ $result = mysqli_query($conn, $sql);
 $num=$result->num_rows;
 while ($row = $result->fetch_assoc()) {  
 	$temp = $row[users_mail];
-	echo $temp . '
+	echo "Mail: " .$temp 
+		."Nome: " . $row[users_name] . " " . $row[users_cog] 
+	. '
 	
 	<form action="inc/abilita.php" method="post">
 	<input type="text" name="mail" id="mail" value="' . $temp . '" style="display: none;">
