@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+
+if ($_SESSION['u_mail']=="sangiovanninolavatrici@gmail.com") {
+
+echo '
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,16 +47,16 @@
 		    </div>
 
 		    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-		      <div class="card-body">
-		        <?php 
-		        	include_once '../inc/db.inc.php';
+					<div class="card-body">';
+					
+		      include_once "../inc/db.inc.php";
 					$sql = "SELECT users_mail, users_name, users_cog, users_room FROM users WHERE abilitato=0";
 					$result = mysqli_query($conn, $sql);
 					$num=$result->num_rows;
 					if($num>0)
 					while ($row = $result->fetch_assoc()) { 
 
-						$temp = $row[users_mail];
+						$temp = $row[users_mail]; 
 						echo '<div style="margin-bottom:20px"> <span style="display:inline-block">' . $row[users_name] . ' ' . $row[users_cog] . ' ('. $temp . ') ' . $row[users_room] . '</span>'
 						. 
 						'<form style="margin-top:0px; display:initial; text-align:initial" action="inc/abilita.php" method="post">
@@ -58,8 +65,9 @@
 						<button type="submit" class="btn btn-danger" style="position:absolute; right:1em;" name="cancella">Cancella</button>
 						</form> <br> </div>';
 					}
-					else echo "<p>Nessun utente da validare.</p>"
-		        ?>
+					else echo "<p>Nessun utente da validare.</p>";
+						
+					echo '
 		      </div>
 		    </div>
 		  </div>
@@ -73,7 +81,7 @@
 		    </div>
 		    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 		      <div class="card-body">
-		        <form style="margin-top:0px; display:initial; text-align:initial" action="inc/abilita.php" method="post">
+		        <form style="margin-top:0px; display:initial; text-align:initial" action="inc/cambia.php" method="post">
 		        	<div class="form-group">
 					    <label for="exampleFormControlInput1">Stanza Partenza</label>
 					    <input style="width:20%" type="number" class="form-control" name="stanzaPartenza">
@@ -96,9 +104,9 @@
 		      </h5>
 		    </div>
 		    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-		      <div class="card-body">
-		        <?php 
-		        	include_once '../inc/db.inc.php';
+		      <div class="card-body">';
+		
+		      include_once '../inc/db.inc.php';
 					$sql = "SELECT users_mail, users_name, users_cog, users_room FROM users ORDER BY users_cog";
 					$result = mysqli_query($conn, $sql);
 					$num=$result->num_rows;
@@ -112,11 +120,18 @@
 						<button type="submit" class="btn btn-danger" style="position:absolute; right:10px;" name="cancella">Cancella</button>
 						</form> <br> </div> <hr>';
 					}
-		        ?>
+		        echo '
 		      </div>
 		    </div>
 		  </div>
 		</div>
 
 </body>
-</html>
+</html>';
+}
+
+else {
+	header("Location: index_notlogged.php");
+}
+
+?>
