@@ -96,6 +96,26 @@ echo '
 		    </div>
 		  </div>
 		  <div class="card">
+		    <div class="card-header" id="headingFour">
+		      <h5 class="mb-0">
+		        <button class="btn btn-warning collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+		          Varia IP SANNETFLIXINO
+		        </button>
+		      </h5>
+		    </div>
+		    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+		      <div class="card-body">
+		        <form style="margin-top:0px; display:initial; text-align:initial" action="inc/cambiaIP.php" method="post">
+		        	<div class="form-group">
+					    <label for="exampleFormControlInput1">Nuovo IP</label>
+					    <input style="width:20%" type="text" class="form-control" name="ipsannetflixino">
+					  </div>
+					<button type="submit" class="btn btn-info" name="cambiaip">Cambia IP</button>
+		        </form>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="card">
 		    <div class="card-header" id="headingThree">
 		      <h5 class="mb-0">
 		        <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

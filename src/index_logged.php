@@ -34,7 +34,7 @@ echo '<!DOCTYPE html>
 <div class="topnav" style="position:relative">
   <a class="active" href="https://www.sangiovannino.altervista.org">SanGiovannino HUB</a>
   <a href="https://www.sangiovannino.altervista.org/lavasciuga/indexLavasciuga.php">Lavanderia</a>
-  <a href="http://192.168.55.239:32400/">SanNetflixino</a>
+  <a href="http://' . $GLOBALS['ip_sannetflixino'] . ':32400/">SanNetflixino</a>
   <form method="post" action="inc/inc_logout.php" style="margin:12px; padding:0">
   	<button type="submit" name="submit" class="btn btn-danger" style="position:absolute; right:10px;">LOGOUT</button>
   </form>
@@ -42,7 +42,7 @@ echo '<!DOCTYPE html>
 
 	<div class="bg-index"></div>
 	<a href="https://www.sangiovannino.altervista.org/lavasciuga/indexLavasciuga.php"><div class = "animated-lav bounceOut"></div></a>
-	<a href="http://192.168.55.239:32400/"><div class = "animated-sann bounceOut"></div>
+	<a href="http://' . $GLOBALS['ip_sannetflixino'] . ':32400/"><div class = "animated-sann bounceOut"></div>
 
 </body>
 </html>';
