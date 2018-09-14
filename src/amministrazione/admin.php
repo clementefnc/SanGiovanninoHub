@@ -98,7 +98,7 @@ echo '
 		  <div class="card">
 		    <div class="card-header" id="headingFour">
 		      <h5 class="mb-0">
-		        <button class="btn btn-warning collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+		        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
 		          Varia IP SANNETFLIXINO
 		        </button>
 		      </h5>
@@ -110,7 +110,7 @@ echo '
 					    <label for="exampleFormControlInput1">Nuovo IP</label>
 					    <input style="width:20%" type="text" class="form-control" name="ipsannetflixino">
 					  </div>
-					<button type="submit" class="btn btn-info" name="cambiaip">Cambia IP</button>
+					<button type="submit" class="btn btn-success" name="cambiaip">Cambia IP</button>
 		        </form>
 		      </div>
 		    </div>
