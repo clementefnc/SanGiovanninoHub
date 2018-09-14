@@ -2,9 +2,11 @@
 
 if( isset($_POST['cambiaip']) ) {
 
-   $GLOBALS['ip_sannetflixino'] = $_POST['ipsannetflixino'];
-   header('Location: ../admin.php');
+    $myfile = fopen("../ipSN.txt", "w") or die("Unable to open file!");
+    echo fwrite($myfile,$_POST['ipsannetflixino']);
+    fclose($myfile);
 
+    header('Location: ../admin.php');
 }
 
 
