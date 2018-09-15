@@ -106,9 +106,14 @@ else if(isset($_POST['send'])){
     $data = explode("/",$_POST['giornoSelect']);
     $ora = intval($_POST['oraSelect'],10);
     $macchina = $_POST['macchinaSelect'];
-    $giorno = $data[0];
-    $mese = $data[1];
-    $anno = $data[2];
+    $giorno = intval($data[0],10);
+    $mese = intval($data[1],10);
+    $anno = intval($data[2],10);
+
+    if(!eDopo($giorno,$mese,$anno,$ora)){
+        //stai cercando di sprenotare una cosa passata
+        echo '<script type="text/javascript">alert("Non puoi sprenotare un turno passato."); window.location="../lavasciuga/indexLavasciuga.php"</script>';
+    }
 
     if(strcmp($macchina,"Lavatrice")==0){
         $sql = "SELECT * FROM prenotazioni WHERE giorno=" . $giorno .
@@ -159,6 +164,36 @@ else if(isset($_POST['send'])){
             header("Location: ../lavasciuga/indexLavasciuga.php");
         }
     }
+}
+
+
+function eDopo($g,$m,$a,$hh){
+
+    date_default_timezone_set("Europe/Rome");
+    setlocale(LC_TIME, array('it_IT.UTF-8','it_IT@euro','it_IT','italian'));
+
+    $giornoAttuale = intval(strftime("%d"),10);
+    $meseAttuale = intval(strftime("%m"),10);
+    $annoAttuale = intval(strftime("%Y"),10);
+    $oraAttuale = intval(strftime("%H"),10);
+
+    $GAttuale = $annoAttuale * 10000 + $meseAttuale * 100 + $giornoAttuale;
+    $GSprenotazione = $a * 10000 + $m * 100 + $g;
+
+    if ($GAttuale < $GSprenotazione){
+        //> non può essere perchè non è previsto nel prompt
+        return true;
+    }
+    else {
+        //Controllare orario
+
+        if($oraAttuale < $hh){
+            return true;
+        }
+        else return false;
+
+    }
+
 }
 
 ?>
