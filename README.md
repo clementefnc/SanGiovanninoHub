@@ -36,7 +36,7 @@ Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https:
 
 + Controllo validità mail
 
-+ Migliorare limitazioni sul numero di prenotazioni
++ Sistema di recupero password (mail con password temporanea aggiornabile attraverso il pannello di amministrazione account)
 
 + ...
 
