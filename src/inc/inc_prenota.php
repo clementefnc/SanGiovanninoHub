@@ -194,7 +194,7 @@ function ePrimaDiOra($g,$m,$a,$hh){
     else if($GSprenotazione>$GAttuale) return false;
     else {
         //controllo orario
-        if($hh<$oraAttuale) return true;
+        if($hh<=$oraAttuale) return true;
         else return false;
     }
 
