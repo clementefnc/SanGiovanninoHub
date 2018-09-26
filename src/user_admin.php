@@ -38,6 +38,9 @@ else{
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+    <!-- FUNZIONI DI UTILITA' -->
+	<script type="text/javascript" src="js/checkPwdChang.js"></script>
+
 
 </head>
 <body>
@@ -76,29 +79,30 @@ else{
 
                         $temp = $row[users_mail]; 
 
-                        echo '
-                        <form action="inc/cambia_pwd.php" method="post">
+                        ?>
+                        <form action="inc/cambia_pwd.php" method="post" class="align-items-center">
 
-                            <input type="text" name="mail" id="mail" value="' . $temp . '" style="display: none;">
+                            <?php echo '<input type="text" name="mail" id="mail" value="' . $temp . '" style="display: none;">'; ?>
 
-                            <div class="form-group">
+                            <div class="form-group" align="center">
                             <label for="old_pwd">Vecchia password</label>
-                            <input type="password" class="form-control" id="old_pwd" placeholder="Vecchia password">
+                            <input type="password" class="form-control inputC" id="old_pwd" placeholder="Vecchia password">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" align="center">
                             <label for="new_pwd">Nuova password</label>
-                            <input type="password" class="form-control" id="new_pwd" placeholder="Vecchia password">
+                            <input type="password" class="form-control inputC" id="new_pwd" placeholder="Nuova password">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" align="center">
                             <label for="new_pwd_retype">Reinserisci nuova password</label>
-                            <input type="password" class="form-control" id="new_pwd_retype" placeholder="Nuova password">
+                            <input type="password" class="form-control inputC" onblur="checkChange()" id="new_pwd_retype" placeholder="Nuova password">
                             </div>
-                            <button type="submit" class="btn btn-primary">Cambia Ora!</button>
+                            <button type="submit" id="change" class="btn btn-primary">Cambia Ora!</button>
+                            
                         </form>
-                        ';
-
+                    
+                    <?php
                     }
                 else echo "<p>ERRORE</p>";
                 ?>
