@@ -86,19 +86,19 @@ else{
 
                             <div class="form-group" align="center">
                             <label for="old_pwd">Vecchia password</label>
-                            <input type="password" class="form-control inputC" id="old_pwd" placeholder="Vecchia password">
+                            <input type="password" class="form-control inputC" id="old_pwd" name="old_pwd" placeholder="Vecchia password">
                             </div>
 
                             <div class="form-group" align="center">
                             <label for="new_pwd">Nuova password</label>
-                            <input type="password" class="form-control inputC" id="new_pwd" placeholder="Nuova password">
+                            <input type="password" class="form-control inputC" id="new_pwd" name="new_pwd" placeholder="Nuova password">
                             </div>
 
                             <div class="form-group" align="center">
                             <label for="new_pwd_retype">Reinserisci nuova password</label>
-                            <input type="password" class="form-control inputC" onblur="checkChange()" id="new_pwd_retype" placeholder="Nuova password">
+                            <input type="password" class="form-control inputC" onblur="checkChange()" name="new_pwd_retype" id="new_pwd_retype" placeholder="Nuova password">
                             </div>
-                            <button type="submit" id="change" class="btn btn-primary">Cambia Ora!</button>
+                            <button type="submit" name="change" id="change" class="btn btn-primary">Cambia Ora!</button>
                             
                         </form>
                     
