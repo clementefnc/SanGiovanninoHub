@@ -40,12 +40,12 @@ else{
 
 
 </head>
-<body class="bg">
+<body>
 
 <div class="topnav" style="position:relative">
   <a class="active" href="https://www.sangiovannino.altervista.org">SanGiovannino HUB</a>
   <a href="https://www.sangiovannino.altervista.org/lavasciuga/indexLavasciuga.php">Lavanderia</a>
-  <a href="http://' . $ipSN . ':32400/">SanNetflixino</a>
+  <a href="<?php echo 'http://' . $ipSN . ':32400/">SanNetflixino</a>' ?>
   <form method="post" action="inc/inc_logout.php" style="margin:12px; padding:0">
   	<button type="submit" name="submit" class="btn btn-danger" style="position:absolute; right:10px;">LOGOUT</button>
   </form>
@@ -55,5 +55,56 @@ else{
 
     <!-- Lascia stanza -->
 
+    <div class="accordion" id="accordionExample">
+		<div class="card">
+		    <div class="card-header" id="headingOne">
+		      <h5 class="mb-0">
+		        <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		          Cambia Password
+		        </button>
+		      </h5>
+		    </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                <?
+                include_once "inc/db.inc.php";
+                $sql = "SELECT users_mail, users_pwd FROM users WHERE users_mail='" . $_SESSION['u_mail']."'";
+                $result = mysqli_query($conn, $sql);
+                $num=$result->num_rows;
+                if($num>0)
+                    while ($row = $result->fetch_assoc()) { 
+
+                        $temp = $row[users_mail]; 
+
+                        echo '
+                        <form action="inc/cambia_pwd.php" method="post">
+
+                            <input type="text" name="mail" id="mail" value="' . $temp . '" style="display: none;">
+
+                            <div class="form-group">
+                            <label for="old_pwd">Vecchia password</label>
+                            <input type="password" class="form-control" id="old_pwd" placeholder="Vecchia password">
+                            </div>
+
+                            <div class="form-group">
+                            <label for="new_pwd">Nuova password</label>
+                            <input type="password" class="form-control" id="new_pwd" placeholder="Vecchia password">
+                            </div>
+
+                            <div class="form-group">
+                            <label for="new_pwd_retype">Reinserisci nuova password</label>
+                            <input type="password" class="form-control" id="new_pwd_retype" placeholder="Nuova password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Cambia Ora!</button>
+                        </form>
+                        ';
+
+                    }
+                else echo "<p>ERRORE</p>";
+                ?>
+                </div>
+		    </div>
+        </div>
+    </div>
 </body>
 </html>
