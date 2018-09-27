@@ -34,12 +34,13 @@ if(isset($_POST['change'])){
         } 
         else{
             //query di modifica
-            $sql = "UPDATE users SET users_pwd=" . $hashedNew . " WHERE users_mail='" . $_SESSION['u_mail'] . "'";
+            $sql = "UPDATE users SET users_pwd='" . $hashedNew . "' WHERE users_mail='" . $_SESSION['u_mail'] . "'";
             $result = mysqli_query($conn, $sql);
-            if($result==FALSE){
-                echo '<script type="text/javascript">alert("Errore modifica password."); window.location="../user_admin.php?error"</script>';
-            }
-            echo '<script type="text/javascript">alert("Password modificata con successo"); window.location="../user_admin.php?Success"</script>';
+            if($result){
+		echo '<script type="text/javascript">alert("Password modificata con successo"); window.location="inc_logout.php"</script>';
+            }else{
+		echo '<script type="text/javascript">alert("Errore modifica password."); window.location="../user_admin.php?error"</script>';
+	    }
         }
     }
 }
