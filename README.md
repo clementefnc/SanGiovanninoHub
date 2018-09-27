@@ -28,15 +28,21 @@ Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https:
 
 + Pannello di controllo amministratore per operazioni standard (cambio camera, kick utente, abilitazione nuovi utenti)
 
++ Pagina di amministrazione account (cambio password)
+
 ---
 
 ## Da implementare
 
-+ Pagina di amministrazione account (cancellazione, modifica password)
++ Pagina di amministrazione account (cancellazione)
 
 + Controllo validità mail
 
 + Sistema di recupero password (mail con password temporanea aggiornabile attraverso il pannello di amministrazione account)
+
++ Form di contatto (senza login)
+
++ Modifica index_logged.php per migliore implementazione
 
 + ...
 
