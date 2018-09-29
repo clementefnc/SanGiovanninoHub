@@ -158,6 +158,13 @@ echo '
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script>
+
+    window.onload = function () { alert("GLI SLOT DELLA LAVATRICE SONO DA INTENDERSI PER LA LAVATRICE NON A PAGAMENTO, FINO A NUOVO ORDINE.") }
+
+    </script>
+
 </head>
 <body>
 
