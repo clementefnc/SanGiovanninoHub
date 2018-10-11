@@ -219,8 +219,8 @@ echo '
               <div class="form-group" style="width:12%; display: inline-block;">
                 <label style="color:#0c0c0c">Scegli</label>
                 <select class="form-control" name="macchinaSelect">
-                  <option>Lavatrice</option>
-                  <option>Asciugatrice</option>
+                  <option>LavN</option>
+                  <option>LavV</option>
                 </select>
               </div>
 

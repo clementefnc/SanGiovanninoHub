@@ -14,6 +14,14 @@ if(isset($_POST['submit'])){
     $mese = intval($data[1],10);
     $anno = intval($data[2],10);
 
+    //TEMPORANEO
+    if(strcmp($macchina,"LavN")==0){
+        $macchina="Lavatrice";
+    }
+    else{
+        $macchina="Asciugatrice";
+    }
+
     if(ePrimaDiOra($giorno,$mese,$anno,$ora)){
         //stai cercando di sprenotare una cosa passata
         echo '<script type="text/javascript">alert("Non puoi prenotare un turno passato."); window.location="../lavasciuga/indexLavasciuga.php"</script>';
@@ -116,6 +124,14 @@ else if(isset($_POST['send'])){
     $giorno = intval($data[0],10);
     $mese = intval($data[1],10);
     $anno = intval($data[2],10);
+
+    //TEMPORANEO
+    if(strcmp($macchina,"LavN")==0){
+        $macchina="Lavatrice";
+    }
+    else{
+        $macchina="Asciugatrice";
+    }
     
     if(ePrimaDiOra($giorno,$mese,$anno,$ora)){
         //stai cercando di sprenotare una cosa passata
