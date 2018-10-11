@@ -159,11 +159,11 @@ echo '
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <script>
+    <!-- <script>
 
     window.onload = function () { alert("GLI SLOT DELLA LAVATRICE SONO DA INTENDERSI PER LA LAVATRICE NON A PAGAMENTO, FINO A NUOVO ORDINE.") }
 
-    </script>
+    </script> -->
 
 </head>
 <body>
@@ -174,6 +174,8 @@ echo '
         <button type="submit" name="submit" class="btn btn-danger" style="position:absolute; right:10px; margin-top: 10px">LOGOUT</button>
         </form>
     </div> 
+
+    <p align=center style="background-color: #f2f2f2; color: red; font-size: 150%;">LavN è la lavatrice nuova (quella piccola senza asciugatrice), LavV è l\'altra. Per il momento l\'asciugatrice è anarchia pura.</p>
 
     <div class="topnav" style="background-color: #f2f2f2;">
         <form method="post" action="../inc/inc_prenota.php">
@@ -243,20 +245,20 @@ echo '
         </tr>
         <tr>
             <th></th>
-            <th>ASC</th>
-            <th>LAV</th>
-            <th>ASC</th>
-            <th>LAV</th>
-            <th>ASC</th>
-            <th>LAV</th>
-            <th>ASC</th>
-            <th>LAV</th>
-            <th>ASC</th>
-            <th>LAV</th>
-            <th>ASC</th>
-            <th>LAV</th>
-            <th>ASC</th>
-            <th>LAV</th>
+            <th>LavV</th>
+            <th>LavN</th>
+            <th>LavV</th>
+            <th>LavN</th>
+            <th>LavV</th>
+            <th>LavN</th>
+            <th>LavV</th>
+            <th>LavN</th>
+            <th>LavV</th>
+            <th>LavN</th>
+            <th>LavV</th>
+            <th>LavN</th>
+            <th>LavV</th>
+            <th>LavN</th>
         </tr>
         </thead>
 
