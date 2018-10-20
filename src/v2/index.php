@@ -1,0 +1,5 @@
+/*
+	Una singola pagina di index
+	Contiene il controllo sulla sessione per valutare il tipo di navbar
+		ed il tipo di contenuto da includere
+*/
