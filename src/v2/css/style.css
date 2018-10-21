@@ -1,0 +1,12 @@
+.bg{
+	background-color: #535353;
+}
+
+.box{
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-left: 30%;
+  margin-right: 30%;
+}
