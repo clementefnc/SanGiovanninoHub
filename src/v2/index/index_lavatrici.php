@@ -35,9 +35,9 @@
 
     <!-- CONTENT -->
     <?php /*selezione tipologia tabella da mostrare*/ 
-      if ($_SESSION['mode']==1) include '../lavatrici/tendine.php';
+      if ($_SESSION['mode']==1) include '../lavatrici/bottoni.php';
 
-      else include '../lavatrici/bottoni.php';
+      else include '../lavatrici/tendine.php';
     ?>
 
 
