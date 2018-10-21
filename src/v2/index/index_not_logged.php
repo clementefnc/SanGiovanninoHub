@@ -24,11 +24,13 @@
 
     
     <!-- CONTENT -->
-    <div style="padding: 0; margin: 0;" align="center">
+    <div class="box" style="margin-top: 4%;" align="center">
+      <div style="padding: 0; margin: 0;" align="center">
 
-      <h2 class="intestazione">Benvenuti su</h2>
-      <img src="../img/logo.png" class="center"></img>
+        <h2 class="intestazione">Benvenuti su</h2>
+        <img src="../img/logo.png" class="center"></img>
 
+      </div>
     </div>
 
     

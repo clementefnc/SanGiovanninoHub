@@ -23,7 +23,7 @@
     <?php include '../navbar/navbar_not_logged.php'; ?>
 
     <!-- CONTENT -->
-    <div class="box" style="margin-top: 7%;" align="center">
+    <div class="box" style="margin-top: 4%;" align="center">
       <div class="box-desktop" align="center">
         <h2 class="intestazione">Accedi</h2> 
         <form  action="inc/inc_login.php" method="post" class="align-items-center formD">
