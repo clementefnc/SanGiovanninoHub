@@ -46,9 +46,10 @@
     <!-- CONTENT -->
     <div class="box" style="margin-top: 4%;" align="center">
       <div class="box-desktop" align="center">
-        <h1 class="h1D">Registrati</h1>
 
-        <form action="inc/inc_reg.php" style="margin-bottom: 20px;" class="align-items-center" method="post">
+        <h2 class="intestazione">Registrati</h2>
+
+        <form action="../inc/inc_reg.php" style="margin-bottom: 20px;" class="align-items-center" method="post">
           <div class="form-group" align="center">
             <!--<label for="email">Email address:</label>-->
             <input name="mail" type="email" placeholder="Email" class="form-control inputC" id="email">
