@@ -34,8 +34,12 @@
     <?php include '../navbar/navbar_logged.php'; ?>
 
     <!-- CONTENT -->
-    <a href="index_lavatrici.php"><div class = "animated-lav bounceOut"></div></a>
-    <a href=<?php echo $addrSN; ?>><div class = "animated-sann bounceOut"></div>
-    
+    <?php /*selezione tipologia tabella da mostrare*/ 
+      if ($_SESSION['mode']==1) include '../lavatrici/tendine.php';
+
+      else include '../lavatrici/bottoni.php';
+    ?>
+
+
   </body>
 </html>
