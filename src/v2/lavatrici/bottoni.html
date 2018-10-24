@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style id="customStyle" type="text/css">
+        td,
+        th,
+        tr {
+            border: 1px solid rgba(0, 0, 0, 0.05)
+        }
+
+        td:hover {
+            background: rgba(0, 0, 0, 0.16);
+        }
+
+        th {
+            text-align: center
+        }
+
+        td.selected {
+            background: #f9a13c55;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="layoutUtils.js"></script>
+    <script>
+        lavatrici = 2
+        table = new tableManager(lavatrici)
+        today = new timeStamp(Date.now())
+
+        table.addHeader('Ora/Giorno')
+        table.addHeader('Lavatrice')
+
+        for (let i = 0; i < 6; i++) {
+            table.addHeaderElement(0, today.hours.reset().days.add(i).toString('wd dd'), lavatrici)
+            table.addHeaderElement(1, 'V')
+            table.addHeaderElement(1, 'N')
+        }
+
+        for (let i = 6; i < 24; i++)
+            table.addRow(i, '')
+
+        table.delegateEvent((hour, days, lav) => {
+            let lavString = lav ? 'Nuova' : 'Vecchia'
+            let aggiungere = `Vuoi prenotare il ${today.hours.reset().days.add(days).toString('wd dd/mm')} alle ${hour}:00 - ${lavString} ?`
+            let rimuovere = 'Vuoi rimuovere la prenotazione?'
+            let domanda = table.isSelected(hour, days, lav) ? rimuovere : aggiungere
+
+            if (window.confirm(domanda))
+                table.toggle(hour, days, lav)
+        })
+
+        table.attach('body')
+
+    </script>
+</body>
+
+</html>
