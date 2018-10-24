@@ -18,7 +18,7 @@ if(preg_match('/\/$/',@$_SERVER['PATH_INFO']))
 
 switch ($method) {
     case'GET':
-        getUser($request);
+        getUser($request,$conn);
     break;
 
     case 'POST':
@@ -26,7 +26,7 @@ switch ($method) {
     break;
 }
 
-function getUser($request){
+function getUser($request,$conn){
     if(!isset($request[0])){
         http_response_code(400);
         return;
@@ -50,7 +50,7 @@ function getUser($request){
     return;
 }
 
-function createUser($request){
+function createUser($request,$conn){
     $nome = mysqli_real_escape_string($conn, $_POST['nome']);
 	$cognome = mysqli_real_escape_string($conn, $_POST['cognome']);
 	$mail = mysqli_real_escape_string($conn, $_POST['mail']);

@@ -14,7 +14,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'POST':
-        login($_POST['mail'],$_POST['pwd']);
+        login($_POST['mail'],$_POST['pwd'],$conn);
     break;
 
     case 'DELETE':
@@ -22,7 +22,7 @@ switch ($method) {
     break;
 }
 
-function login($mail,$pwd){
+function login($mail,$pwd,$conn){
     $mail = mysqli_real_escape_string($conn,$mail);
     $pwd = mysqli_real_escape_string($conn,$pwd);
 
