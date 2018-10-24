@@ -25,11 +25,11 @@ switch ($method) {
     case 'PUT':
         switch($request[0]){
             case 'lavatrice':
-                prenota($request,'prenotazioni','',$conn);  
+                prenota($request,'prenotazioni','',$conn,$mail);  
             break;
 
             case 'asciugatrice':
-                prenota($request,'asciugatrice','a_',$conn);  
+                prenota($request,'asciugatrice','a_',$conn,$mail);  
             break;
         }
     break;
@@ -37,11 +37,11 @@ switch ($method) {
     case 'DELETE':
         switch($request[0]){
             case 'lavatrice':
-                rimuovi($request,'prenotazioni','',$conn);  
+                rimuovi($request,'prenotazioni','',$conn,$mail);  
             break;
 
             case 'asciugatrice':
-                rimuovi($request,'asciugatrice','a_',$conn);  
+                rimuovi($request,'asciugatrice','a_',$conn,$mail);  
             break;
         }
     break;
@@ -55,6 +55,7 @@ switch ($method) {
             case 'asciugatrice':
                 richiedi($request,'asciugatrice','a_',$conn);  
             break;
+
         }
     break;
 }
@@ -72,7 +73,7 @@ function richiedi($request,$table,$prefix,$conn){
         $args[] = mysqli_real_escape_string($conn,$arg); 
     }
 
-    $sql = "SELECT ora, users_name, users_cog, users_room 
+    $sql = "SELECT ".$prefix."ora, users_name, users_cog, users_room 
             FROM users, ".$table." 
             WHERE ".$prefix."anno=".$args[1]
             ." AND ".$prefix."mese=".$args[2]
@@ -84,15 +85,16 @@ function richiedi($request,$table,$prefix,$conn){
     $sql .= " LIMIT 24";
 
     $result = mysqli_query($conn, $sql);
+
     while($row = $result->fetch_assoc()) {
         $fetched[]=$row;
     }
-    $obj = array('success'=>true,'Items'=>$fetched);
+    $obj = array('success'=>true,'Items'=>$fetched,'Table'=>$table,'Prefix'=>$prefix);
     echo(json_encode($obj));
 
 }
 
-function prenota($request,$table,$prefix,$conn){
+function prenota($request,$table,$prefix,$conn,$mail){
 
     if(!isset($request[4])){
         http_response_code(400);
@@ -125,7 +127,7 @@ function prenota($request,$table,$prefix,$conn){
             WHERE ".$prefix."anno=".$args[1]
             ." AND ".$prefix."mese=".$args[2]
             ." AND ".$prefix."giorno=".$args[3]
-            ." AND ".$prefix."email=".$mail;
+            ." AND ".$prefix."email="."'$mail'";
 
     $result = mysqli_query($conn, $sql);
     $check = mysqli_num_rows($result);
@@ -144,13 +146,13 @@ function prenota($request,$table,$prefix,$conn){
         ".$prefix."mese,
         ".$prefix."anno,
         ".$prefix."ora) 
-        VALUES (" . "'" . $mail . "'" . "," . $giorno . "," . $mese . "," . $anno . "," . $ora .")";
+        VALUES ('$mail','$args[3]','$args[2]','$args[1]','$args[4]')";
     if(mysqli_query($conn, $sql)) echo(json_encode(array('success'=>true)));
     else http_response_code(500);
     
 }
 
-function rimuovi($request,$table,$prefix,$conn){
+function rimuovi($request,$table,$prefix,$conn,$mail){
     $fetched = [];
     
     if(!isset($request[4])){
@@ -174,7 +176,7 @@ function rimuovi($request,$table,$prefix,$conn){
             ." AND ".$prefix."mese=".$args[2]
             ." AND ".$prefix."giorno=".$args[3]
             ." AND ".$prefix."ora=".$args[4]
-            ." AND ".$prefix."email=".$mail;
+            ." AND ".$prefix."email="."'$mail'";
 
     $result = mysqli_query($conn, $sql);
     $check = mysqli_num_rows($result);

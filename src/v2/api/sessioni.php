@@ -1,12 +1,6 @@
 <?php
 
-//Autenticazione
 session_start();
-if(!isset($_SESSION['u_mail'])){
-    http_response_code(403);
-    return;
-}
-
 include_once 'db.inc.php';
 
 //Router
@@ -46,10 +40,10 @@ function login($mail,$pwd,$conn){
 
 	$hashed = password_verify($pwd, $row['users_pwd']);
 	if($hashed == true){
-        $_SESSION['u_first'] = $row['users_name'];
-		$_SESSION['u_last'] = $row['users_cog'];
-		$_SESSION['u_mail'] = $row['users_mail'];
-        $_SESSION['u_room'] = $row['users_room'];
+        $_SESSION['u_name'] = mysqli_real_escape_string($conn,$row['users_name']);
+		$_SESSION['u_cog'] = mysqli_real_escape_string($conn,$row['users_cog']);
+		$_SESSION['u_mail'] = mysqli_real_escape_string($conn,$row['users_mail']);
+        $_SESSION['u_room'] = mysqli_real_escape_string($conn,$row['users_room']);
             
         $obj = array('success'=>true);
         echo(json_encode($obj));

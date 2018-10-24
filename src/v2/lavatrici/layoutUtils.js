@@ -50,7 +50,7 @@ var timeStamp = class {
         let weekday = weekdays[this.utc.getDay()]
         let hour = this.utc.getHours()
 
-        return format.replace('hh', hour).replace('wd', weekday).replace('dd', date).replace('mm', month).replace('yy', year)
+        return format.replace('hh', hour).replace('wd', weekday).replace('dd', date).replace('mm', month).replace('mn',this.utc.getMonth()+1).replace('yy', year)
     }
 }
 
@@ -145,6 +145,8 @@ var tableManager = class {
     delegateEvent(handler) {
         this.Node.addEventListener('click', evt => {
             if (evt.target.matches('td')) {
+                if (evt.target.locked)
+                    return
                 let days = Math.floor(evt.target.column / 2);
                 let lav = evt.target.column % this.numLavatrici
                 handler(evt.target.row, days, lav)
@@ -152,7 +154,8 @@ var tableManager = class {
         })
     }
 
-    toggle(hour, days, lav, text) {
+    toggle(hour, days, lav, text, lock) {
+        lock = lock || 0
         let elms = []
         let col = days * this.numLavatrici + lav
         Object.values(this.body.children).forEach(e => elms.push(...e.children))
@@ -163,6 +166,7 @@ var tableManager = class {
                 chosen.textContent = text
             this.selected.push([hour, col])
         }
+        chosen.locked = lock
         chosen.classList.toggle('selected')
 
     }
@@ -170,6 +174,11 @@ var tableManager = class {
     isSelected(hour, days, lav) {
         let col = days * this.numLavatrici + lav
         return this.selected.filter(e => e[0] == hour).find(e => e[1] == col) != undefined
+    }
+
+    isLocked(hour, days, lav) {
+        let col = days * this.numLavatrici + lav
+        return this.selected.filter(e => e[0] == hour).find(e => e[1] == col)[2]
     }
 
 }
