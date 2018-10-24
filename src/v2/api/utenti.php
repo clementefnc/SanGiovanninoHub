@@ -22,7 +22,7 @@ switch ($method) {
     break;
 
     case 'POST':
-        createUser();
+        createUser($request,$conn);
     break;
 }
 
