@@ -6,6 +6,9 @@
   fclose($myfile);
 
   $addrSN = "http://" . $ipSN . ":32400/";
+  session_start();
+  if(!isset($_SESSION['u_mail']))
+    header("Location: ../index.php")
 
 ?>
 
@@ -35,9 +38,9 @@
 
     <!-- CONTENT -->
     <?php /*selezione tipologia tabella da mostrare*/ 
-      if ($_SESSION['mode']==1) include '../lavatrici/bottoni.php';
+      /*if ($_SESSION['mode']==1)*/ include '../lavatrici/bottoni.php';
 
-      else include '../lavatrici/tendine.php';
+      //else include '../lavatrici/tendine.php';
     ?>
 
 

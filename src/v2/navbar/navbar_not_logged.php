@@ -12,6 +12,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../user/register.php"><span class="glyphicon glyphicon-user"></span> Registrati</a></li>
         <li><a href="../user/login.php"><span class="glyphicon glyphicon-log-in"></span> Accedi</a></li>
+        <script src="../js/rest.js"></script>
       </ul>
     </div>
   </div>

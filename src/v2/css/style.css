@@ -1,5 +1,5 @@
 .bg{
-	background-color: #535353;
+	background-color: #dfdfdf;
 }
 
 .box{
@@ -23,6 +23,43 @@ h2.intestazione{
 	color:white;
 	margin-top: 10px;
 	margin-bottom:40px;
+}
+
+/*Prenotazioni*/
+td,th,tr {
+        border: 1px solid rgba(0, 0, 0, 0.05)
+      }
+      
+td:hover {
+        background: rgba(0, 0, 0, 0.16);
+}
+      
+th {
+        text-align: center;
+        width: 7em;
+}
+
+td{
+        width:6em;
+}
+      
+td.selected {
+        background: #f9a13caa;
+        text-align: center;
+        color: #1b1c1d;
+}
+      
+table{
+        min-width:800px;
+}
+      
+div#container{
+        background-color:#efefef;
+        min-width:800px;
+}
+
+nav{
+        box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.03);
 }
 
 /*BOUNCE OUT Effect*/

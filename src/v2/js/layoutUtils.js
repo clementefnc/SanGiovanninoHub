@@ -50,7 +50,7 @@ var timeStamp = class {
         let weekday = weekdays[this.utc.getDay()]
         let hour = this.utc.getHours()
 
-        return format.replace('hh', hour).replace('wd', weekday).replace('dd', date).replace('mm', month).replace('mn',this.utc.getMonth()+1).replace('yy', year)
+        return format.replace('hh', hour).replace('wd', weekday).replace('dd', date).replace('mm', month).replace('mn', this.utc.getMonth() + 1).replace('yy', year)
     }
 }
 
@@ -69,7 +69,7 @@ var tableManager = class {
                 }
             `;
         }
-        document.querySelector('head').insertBefore(dynamicCss, document.querySelector('#customStyle'));
+        document.querySelector('head').prepend(dynamicCss);
 
         this.head = document.createElement('thead')
         this.body = document.createElement('tbody')
@@ -149,36 +149,26 @@ var tableManager = class {
                     return
                 let days = Math.floor(evt.target.column / 2);
                 let lav = evt.target.column % this.numLavatrici
-                handler(evt.target.row, days, lav)
+                handler(evt.target.row, days, lav, evt.target)
             }
         })
     }
 
     toggle(hour, days, lav, text, lock) {
-        lock = lock || 0
+        lock = lock || false
         let elms = []
         let col = days * this.numLavatrici + lav
         Object.values(this.body.children).forEach(e => elms.push(...e.children))
         let chosen = elms.filter(e => e.row == hour).find(e => e.column == col)
         chosen.textContent = ''
-        if (!this.isSelected(hour, days, lav)) {
+        if (!chosen.selected) {
             if (text != undefined)
                 chosen.textContent = text
-            this.selected.push([hour, col])
         }
+        chosen.selected = !chosen.selected
         chosen.locked = lock
         chosen.classList.toggle('selected')
 
-    }
-
-    isSelected(hour, days, lav) {
-        let col = days * this.numLavatrici + lav
-        return this.selected.filter(e => e[0] == hour).find(e => e[1] == col) != undefined
-    }
-
-    isLocked(hour, days, lav) {
-        let col = days * this.numLavatrici + lav
-        return this.selected.filter(e => e[0] == hour).find(e => e[1] == col)[2]
     }
 
 }

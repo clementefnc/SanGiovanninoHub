@@ -1,5 +1,9 @@
 <?php
 
+ini_set('session.gc_maxlifetime', 60*60*24*10);
+ini_set('session.cookie_lifetime', 60*60*24*10);
+session_set_cookie_params(60*60*24*10);
+
 session_start();
 include_once 'db.inc.php';
 
@@ -44,7 +48,7 @@ function login($mail,$pwd,$conn){
 		$_SESSION['u_cog'] = mysqli_real_escape_string($conn,$row['users_cog']);
 		$_SESSION['u_mail'] = mysqli_real_escape_string($conn,$row['users_mail']);
         $_SESSION['u_room'] = mysqli_real_escape_string($conn,$row['users_room']);
-            
+        session_regenerate_id();
         $obj = array('success'=>true);
         echo(json_encode($obj));
         return;

@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 //Autenticazione
 session_start();
 if(!isset($_SESSION['u_mail'])){
@@ -74,15 +77,15 @@ function richiedi($request,$table,$prefix,$conn){
     }
 
     $sql = "SELECT ".$prefix."ora, users_name, users_cog, users_room 
-            FROM users, ".$table." 
+            FROM users,".$table." 
             WHERE ".$prefix."anno=".$args[1]
             ." AND ".$prefix."mese=".$args[2]
-            ." AND ".$prefix."giorno=".$args[3];
+            ." AND ".$prefix."giorno=".$args[3]
+            ." AND "."users.users_mail = $table.$prefix"."email";
+            
 
     if(isset($args[4]))
         $sql .= " AND ".$prefix."ora=".$args[4];
-
-    $sql .= " LIMIT 24";
 
     $result = mysqli_query($conn, $sql);
 

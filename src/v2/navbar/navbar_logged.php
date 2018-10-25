@@ -11,7 +11,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../user/admin_user.php"><span class="glyphicon glyphicon-user"></span> Utente</a></li>
-        <li><button class="btn btn-danger navbar-btn" style="margin-right: 10px;">Logout</button></li>
+        <li><button id="logout" class="btn btn-danger navbar-btn" style="margin-right: 10px;">Logout</button></li>
+        <script src="../js/rest.js"></script>
+        <script>document.querySelector('#logout').addEventListener('click',e=>new requestFactory('../api/').fetch('DELETE','sessioni.php').then(e=>location.reload()));</script>
       </ul>
     </div>
   </div>
