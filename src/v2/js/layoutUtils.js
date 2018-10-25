@@ -162,8 +162,10 @@ var tableManager = class {
         let chosen = elms.filter(e => e.row == hour).find(e => e.column == col)
         chosen.textContent = ''
         if (!chosen.selected) {
-            if (text != undefined)
+            if (typeof (text) == 'string')
                 chosen.textContent = text
+            else if (typeof (text) == 'object')
+                chosen.appendChild(text)
         }
         chosen.selected = !chosen.selected
         chosen.locked = lock

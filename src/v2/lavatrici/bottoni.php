@@ -38,8 +38,23 @@
             lav = giornata.Table == 'prenotazioni' ? 0 : 1
             giorno = giornata.days
             giornata.Items.forEach(prenotazione => {
-                table.toggle(prenotazione[`${giornata.Prefix}ora`], giorno, lav, prenotazione.users_room, prenotazione.users_room != camera)
+                let casella = makeLabel(prenotazione.users_room,prenotazione.users_name,prenotazione.users_cog,prenotazione.users_room != camera)
+                table.toggle(prenotazione[`${giornata.Prefix}ora`], giorno, lav, casella, prenotazione.users_room != camera)
             })
+        }
+
+        let makeLabel = function(stanza,nome,cognome,self){
+            let p = document.createElement('p')
+            p.setAttribute('style','display:inline;font-weight:bold')
+            p.setAttribute('data-toggle','tooltip')
+            p.setAttribute('data-placement','auto right')
+            if(nome && cognome && self)
+                p.setAttribute('title',`${nome} ${cognome}`)
+            else
+                p.style.cssText+='pointer-events:none;'
+            p.textContent = stanza
+            $(p).tooltip()
+            return p
         }
 
         table.delegateEvent(async function (hour, days, lav, target) {
@@ -60,7 +75,7 @@
                 response = await rest.fetch('PUT', `prenotazioni.php/${lavString}/${data.toString('yy/mn/dd')}/${hour}`)
 
             if (response.success)
-                table.toggle(hour, days, lav, String(camera),false)
+                table.toggle(hour, days, lav, makeLabel(camera),false)
             else
                 window.alert(response.message)
 

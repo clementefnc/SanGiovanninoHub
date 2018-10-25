@@ -55,7 +55,8 @@ table{
       
 div#container{
         background-color:#efefef;
-        min-width:800px;
+        width:100%;
+        overflow-x:scroll;
 }
 
 nav{
