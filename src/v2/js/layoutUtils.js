@@ -144,12 +144,12 @@ var tableManager = class {
 
     delegateEvent(handler) {
         this.Node.addEventListener('click', evt => {
-            if (evt.target.matches('td')) {
-                if (evt.target.locked)
-                    return
-                let days = Math.floor(evt.target.column / 2);
-                let lav = evt.target.column % this.numLavatrici
-                handler(evt.target.row, days, lav, evt.target)
+            var target = evt.target
+            if(!evt.target.matches('td')) target = evt.target.closest('td')
+            if (target && target.locked!=true) {
+                let days = Math.floor(target.column / 2);
+                let lav = target.column % this.numLavatrici
+                handler(target.row, days, lav, target)
             }
         })
     }

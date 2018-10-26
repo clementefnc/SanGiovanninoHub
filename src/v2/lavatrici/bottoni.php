@@ -11,6 +11,9 @@
     <script>
         camera = <?php session_start(); echo($_SESSION['u_room']); ?>
         
+        nome = '<?php echo($_SESSION['u_name']); ?>'
+        cognome = '<?php echo($_SESSION['u_cog']); ?>'
+        
         lavatrici = 2
         table = new tableManager(lavatrici)
         today = new timeStamp(Date.now())
@@ -38,20 +41,19 @@
             lav = giornata.Table == 'prenotazioni' ? 0 : 1
             giorno = giornata.days
             giornata.Items.forEach(prenotazione => {
-                let casella = makeLabel(prenotazione.users_room,prenotazione.users_name,prenotazione.users_cog,prenotazione.users_room != camera)
+                let casella = makeLabel(prenotazione.users_room,prenotazione.users_name,prenotazione.users_cog)
                 table.toggle(prenotazione[`${giornata.Prefix}ora`], giorno, lav, casella, prenotazione.users_room != camera)
             })
         }
 
-        let makeLabel = function(stanza,nome,cognome,self){
+        let makeLabel = function(stanza,nome,cognome){
             let p = document.createElement('p')
             p.setAttribute('style','display:inline;font-weight:bold')
             p.setAttribute('data-toggle','tooltip')
             p.setAttribute('data-placement','auto right')
-            if(nome && cognome && self)
+            if(nome && cognome)
                 p.setAttribute('title',`${nome} ${cognome}`)
-            else
-                p.style.cssText+='pointer-events:none;'
+    
             p.textContent = stanza
             $(p).tooltip()
             return p
@@ -75,7 +77,7 @@
                 response = await rest.fetch('PUT', `prenotazioni.php/${lavString}/${data.toString('yy/mn/dd')}/${hour}`)
 
             if (response.success)
-                table.toggle(hour, days, lav, makeLabel(camera),false)
+                table.toggle(hour, days, lav, makeLabel(camera,nome,cognome),false)
             else
                 window.alert(response.message)
 
