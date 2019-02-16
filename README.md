@@ -2,7 +2,6 @@
 ## Portale interno del SanGiovannino
 
 ### TODO
-+ NavBar (logged, not-logged)
 
 + Index
 
@@ -14,6 +13,12 @@
 
 + Other services: SanNetflixino, Radio Molecole Illegali
 
++ PHP - DB
+
 ### Done
 
-empty
++ NavBar (logged, not-logged)
+
+### ToFix
+
++ Logo transparent borders
