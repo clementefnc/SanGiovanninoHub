@@ -13,7 +13,7 @@
 		        <div class="col-10 mx-auto">
 		            <div class="card h-100 border-secondary justify-content-center">
 		                <div class="bg-secondary">
-		                    <img src="img/logo.png" class="img-fluid rounded mx-auto d-block"></img>
+		                    <img src="img/logo.png" class="img-fluid rounded mx-auto d-block">
 		                </div>
 		            </div>
 		        </div>
