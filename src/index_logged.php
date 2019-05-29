@@ -8,48 +8,52 @@ if (!empty($_SESSION)) {
 	$ipSN = fgets($myfile);
 	fclose($myfile);
 
-echo '<!DOCTYPE html>
-<html>
-<head>
-	<title>SanGiovannino Hub</title>
 
-	<meta charset="utf-8">
+	//tolto sanNetflixino, direttamente alle lavatrici
+	header("Location: lavasciuga/indexLavasciuga.php");
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<!-- FONT ROBOTO -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+// echo '<!DOCTYPE html>
+// <html>
+// <head>
+// 	<title>SanGiovannino Hub</title>
 
- 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+// 	<meta charset="utf-8">
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+// 	<link rel="stylesheet" type="text/css" href="css/style.css">
+// 	<!-- FONT ROBOTO -->
+// 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
 
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+//  	<!-- Latest compiled and minified CSS -->
+// 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+// 	<!-- jQuery library -->
+// 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+// 	<!-- Popper JS -->
+// 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+// 	<!-- Latest compiled JavaScript -->
+// 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 
-</head>
-<body class="bg">
+// </head>
+// <body class="bg">
 
-<div class="topnav" style="position:relative">
-  <a class="active" href="https://www.sangiovannino.altervista.org">SanGiovannino HUB</a>
-  <a href="https://www.sangiovannino.altervista.org/lavasciuga/indexLavasciuga.php">Lavanderia</a>
-  <a href="http://' . $ipSN . ':32400/">SanNetflixino</a>
-  <form method="post" action="inc/inc_logout.php" style="margin:12px; padding:0">
-  	<button type="submit" name="submit" class="btn btn-danger" style="position:absolute; right:10px;">LOGOUT</button>
-  </form>
-</div>
+// <div class="topnav" style="position:relative">
+//   <a class="active" href="https://www.sangiovannino.altervista.org">SanGiovannino HUB</a>
+//   <a href="https://www.sangiovannino.altervista.org/lavasciuga/indexLavasciuga.php">Lavanderia</a>
+//   <!-- <a href="http://' . $ipSN . ':32400/">SanNetflixino</a> -->
+//   <form method="post" action="inc/inc_logout.php" style="margin:12px; padding:0">
+//   	<button type="submit" name="submit" class="btn btn-danger" style="position:absolute; right:10px;">LOGOUT</button>
+//   </form>
+// </div>
 
-	<div class="bg-index"></div>
-	<a href="https://www.sangiovannino.altervista.org/lavasciuga/indexLavasciuga.php"><div class = "animated-lav bounceOut"></div></a>
-	<a href="http://' . $ipSN . ':32400/"><div class = "animated-sann bounceOut"></div>
+// 	<div class="bg-index"></div>
+// 	<a href="https://www.sangiovannino.altervista.org/lavasciuga/indexLavasciuga.php"><div class = "animated-lav bounceOut"></div></a>
+// 	<!-- <a href="http://' . $ipSN . ':32400/"><div class = "animated-sann bounceOut"></div> -->
 
-</body>
-</html>';
+// </body>
+// </html>';
 
 }
 

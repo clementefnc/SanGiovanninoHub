@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
     $anno = intval($data[2],10);
 
     //TEMPORANEO
-    if(strcmp($macchina,"LavN")==0){
+    if(strcmp($macchina,"Lavatrice")==0){
         $macchina="Lavatrice";
     }
     else{
@@ -126,7 +126,7 @@ else if(isset($_POST['send'])){
     $anno = intval($data[2],10);
 
     //TEMPORANEO
-    if(strcmp($macchina,"LavN")==0){
+    if(strcmp($macchina,"Lavatrice")==0){
         $macchina="Lavatrice";
     }
     else{
