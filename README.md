@@ -6,7 +6,7 @@ Con il portale è possibile accedere da un unica pagina a tutte le info ed i ser
 
 ---
 
-Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https://github.com/clementefnc) [@MisserHero](https://github.com/MisserHero)
+Contributors: [@DrakeAusir](https://github.com/DrakeAusir) [@clementefnc](https://github.com/clementefnc)
 
 ---
 

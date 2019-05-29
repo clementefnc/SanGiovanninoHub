@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -14,5 +13,3 @@ else if (!empty($_SESSION)) {
 }
 
 ?>
-
-
