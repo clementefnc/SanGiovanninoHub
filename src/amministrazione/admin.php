@@ -2,7 +2,7 @@
 
 session_start();
 
-if ($_SESSION['u_mail']=="sangiovanninolavatrici@gmail.com") {
+if ($_SESSION['u_mail']=="sangiovanninolavatrici@gmail.com" || $_SESSION['u_mail']=="giorgio.ramundo@31gennaio.net") {
 
 echo '
 <!DOCTYPE html>
@@ -96,25 +96,12 @@ echo '
 		    </div>
 		  </div>
 		  <div class="card">
-		    <div class="card-header" id="headingFour">
+          	<div class="card-header" id="headingFour">
 		      <h5 class="mb-0">
-		        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-		          Varia IP SANNETFLIXINO
-		        </button>
-		      </h5>
+		  		<a class="btn btn-danger" href="https://www.sangiovannino.altervista.org/lavasciuga/indexLavasciuga.php" role="button">VISUALIZZA STATO PRENOTAZIONI</a>
+		  	  </h5>
 		    </div>
-		    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-		      <div class="card-body">
-		        <form style="margin-top:0px; display:initial; text-align:initial" action="inc/cambiaIP.php" method="post">
-		        	<div class="form-group">
-					    <label for="exampleFormControlInput1">Nuovo IP</label>
-					    <input style="width:20%" type="text" class="form-control" name="ipsannetflixino">
-					  </div>
-					<button type="submit" class="btn btn-success" name="cambiaip">Cambia IP</button>
-		        </form>
-		      </div>
-		    </div>
-		  </div>
+          </div>
 		  <div class="card">
 		    <div class="card-header" id="headingThree">
 		      <h5 class="mb-0">
@@ -133,7 +120,7 @@ echo '
 					while ($row = $result->fetch_assoc()) { 
 
 						$temp = $row[users_mail];
-						echo '<div style="margin-bottom:20px; margin-top:0px;"> <span style="display:inline-block">' . $row[users_cog] . ' ' . $row[users_name] . ' ('. $temp . ')   ' . '</span>'
+						echo '<div style="margin-bottom:20px; margin-top:0px;"> <span style="display:inline-block">' . $row[users_cog] . ' ' . $row[users_name] . ' ('. $temp . ')   (' . $row[users_room] . ')'. '</span>'
 						. 
 						'<form style="margin-top:0px; display:initial; text-align:initial" action="inc/abilita.php" method="post">
 						<input type="text" name="mail" id="mail" value="' . $temp . '" style="display: none;">

@@ -1,0 +1,12 @@
+DB_name = my_sangiovannino
+Codifica caratteri server: UTF-8 unicode
+
+Tabelle in utf8_roman_ci
+
+Campi
+numeri: int(255)
+stringhe: varchar(255) in utf8_unicode_ci
+
+asciugatrice(a_email,a_giorno,a_mese,a_anno,a_ora)
+prenotazioni(email,giorno,mese,anno,ora)
+users(users_name,users_cog,users_mail,users_pwd,users_room,abilitato), abilitato è un int(2) unsigned con 0 come predefinito; room è unsigned

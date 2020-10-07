@@ -171,21 +171,35 @@ if (!empty($_SESSION)) {
                 //ASCIUGATRICE
                 echo '<td align="center" style="font-size: 12px">';
                 
-                $sql = "SELECT users_name, users_cog, users_room 
+//                $sql = "SELECT users_name, users_cog, users_room 
+//                        FROM users, asciugatrice 
+//                        WHERE a_giorno=".intval($piu[$j][0],10)
+//                            ." AND a_mese=".intval($piu[$j][1],10)
+//                            ." AND a_anno=".intval($piu[$j][2],10)
+//                            ." AND a_ora=".intval($i,10)
+//                            ." AND users_mail=a_email";
+
+
+					$sql = "SELECT users_name, users_cog, users_room 
                         FROM users, asciugatrice 
                         WHERE a_giorno=".intval($piu[$j][0],10)
                             ." AND a_mese=".intval($piu[$j][1],10)
                             ." AND a_anno=".intval($piu[$j][2],10)
                             ." AND a_ora=".intval($i,10)
                             ." AND users_mail=a_email";
+
                     $result = mysqli_query($conn, $sql);
+                    // echo intval($piu[$j][0],10).' '.intval($piu[$j][1],10).' '.intval($piu[$j][2],10).' '.intval($i,10);
 
                 //printare il risultato della query
                 $check = mysqli_num_rows($result);
+                // echo $check . "yo";
 
-                if($check>0)
+                if($check>0){
                 while($row = $result->fetch_assoc()) {
                     echo $row["users_cog"] . "<br>" . "<strong>" . $row["users_room"] . "</strong>";
+                }
+                //echo "oh yes";
                 }
                 
                 echo '</td>';
@@ -204,9 +218,10 @@ if (!empty($_SESSION)) {
                 //printare il risultato della query
                 $check = mysqli_num_rows($result);
 
-                if($check>0)
+                if($check>0){
                 while($row = $result->fetch_assoc()) {
                     echo $row["users_cog"] . "<br>" . "<strong>" . $row["users_room"] . "</strong>";
+                }
                 }
                 
                 echo '</td>';

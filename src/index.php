@@ -2,7 +2,7 @@
 
 session_start();
 
-if($_SESSION['u_mail']=="sangiovanninolavatrici@gmail.com"){
+if($_SESSION['u_mail']=="sangiovanninolavatrici@gmail.com" || $_SESSION['u_mail']=="giorgio.ramundo@31gennaio.net"){
 	header("Location: amministrazione/admin.php");
 }
 
@@ -13,3 +13,5 @@ else if (!empty($_SESSION)) {
 }
 
 ?>
+
+
